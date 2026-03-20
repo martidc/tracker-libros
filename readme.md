@@ -1,14 +1,24 @@
-# ★ mi biblioteca
+# mi biblioteca
 
 Tracker personal de libros construido con HTML/CSS/JS vanilla y Firebase. Permite registrar libros, seguir el progreso de lectura, ver estadísticas y exportar/importar desde Google Sheets o Goodreads.
+
+Diseño inspirado en la estética retro/pixel y la cultura web de Neocities — fuentes bitmap, paleta rosa oscuro y elementos decorativos de la web de los 2000.
 
 Este es un proyecto de uso personal desarrollado como parte de mi aprendizaje en desarrollo web.
 
 ---
 
+<img width="1600" height="758" alt="biblioteca principal" src="https://github.com/user-attachments/assets/d3cab8a7-a48b-4eff-9e68-04b074019899" />
+
+<img width="1600" height="758" alt="estadísticas" src="https://github.com/user-attachments/assets/f00bb0f3-7a7d-421b-8982-fc38760c8db0" />
+
+<img src="https://github.com/user-attachments/assets/8d3d4587-b3b3-46a3-af44-65478b0c90d6" width="300" />
+
+---
+
 ## Features
 
-- **Biblioteca** — permite agregar libros manualmente o buscando en Open Library, con portada automática
+- **Biblioteca** — agregá libros manualmente o buscando en Open Library, con portada automática
 - **Datos** — importar desde Google Sheets CSV o Goodreads CSV, exportar la biblioteca como CSV
 - **Estados** — leído, leyendo, pendiente
 - **Filtros y búsqueda** — filtrá por estado, buscá por título o autor
@@ -130,9 +140,8 @@ Exportá desde Goodreads (Mi perfil → Configuración → Importar y exportar �
 
 - [ ] Modo oscuro
 - [ ] Rating con estrellas
-- [ ] Rating con estrellas
 - [ ] Buscador automático de tapas
-- [ ] Agregar opción de libro no terminado.
+- [ ] Agregar opción de libro no terminado
 
 ---
 
