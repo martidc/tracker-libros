@@ -1,0 +1,154 @@
+/* ── MARQUEE ── */
+.marquee-wrap {
+  background: #a0005a;
+  overflow: hidden;
+  padding: 5px 0;
+  border-bottom: 2px solid #6d003d;
+}
+.marquee-inner {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #ffd6e7;
+  letter-spacing: 1px;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── HEADER ── */
+header {
+  background: #ffd6e7;
+  border-bottom: 2px solid #ff8fab;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #a0005a;
+  text-align: center;
+  line-height: 1.8;
+}
+.logo span { color: #2e7d32; }
+
+nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+nav a {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #a0005a;
+  text-decoration: none;
+  padding: 3px 12px;
+  border: 1.5px solid #ff8fab;
+  background: #fff0f6;
+}
+nav a:hover,
+nav a.active {
+  background: #a0005a;
+  color: #ffd6e7;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #a0005a;
+  margin: 18px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg, #ff8fab 0 4px, transparent 4px 8px
+  );
+}
+
+/* Modificador pequeño (reemplaza style="font-size:7px") */
+.section-title--sm { font-size: 7px; }
+
+/* Modificador con margen superior (reemplaza style="margin-top:12px") */
+.section-title--spaced { margin-top: 12px; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 16px;
+  margin-top: auto;
+  border-top: 2px solid #ff8fab;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #ff8fab;
+  letter-spacing: 1px;
+  line-height: 2;
+}
+.link { color: #ff8fab; }
+
+/* ── HEADER PC ── */
+@media (min-width: 700px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .logo { font-size: 14px; }
+}
+
+/* ── LOGIN SCREEN ── */
+.login-screen {
+  position: fixed;
+  inset: 0;
+  background: #fff8fc;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.login-screen.is-hidden { display: none; }
+
+.login-card {
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.login-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  color: #a0005a;
+  line-height: 1.8;
+}
+.login-logo span { color: #2e7d32; }
+.login-desc {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #7a3b5e;
+  line-height: 1.5;
+}

@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #fff8fc;
+  color: #3b1a2e;
+  min-height: 100vh;
+  image-rendering: pixelated;
+  display: flex;
+  flex-direction: column;
+}
+
+main, .stats-page {
+  flex: 1;
+}
+

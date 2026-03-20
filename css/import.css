@@ -1,0 +1,294 @@
+/* ══════════════════════════════════════
+   import.css — página de importación
+   ══════════════════════════════════════ */
+
+.import-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 24px 40px;
+}
+
+/* ── EXPORTAR ── */
+.export-card {
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.export-info { display: flex; align-items: center; gap: 14px; }
+.export-icon { font-size: 28px; line-height: 1; }
+.export-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #a0005a;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+.export-desc {
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  color: #7a3b5e;
+  line-height: 1.4;
+  max-width: 420px;
+}
+
+/* ── SELECTOR DE FUENTE ── */
+.source-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 500px) {
+  .source-grid { grid-template-columns: 1fr; }
+}
+
+.source-card {
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  padding: 20px 16px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: background .1s;
+  font-family: inherit;
+}
+.source-card:hover { background: #ffd6e7; }
+.source-card.active {
+  background: #ffd6e7;
+  border-color: #a0005a;
+  border-width: 2.5px;
+}
+
+.source-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+.source-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #a0005a;
+  line-height: 1.8;
+}
+.source-desc {
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  color: #7a3b5e;
+  line-height: 1.4;
+}
+
+/* ── INSTRUCCIONES ── */
+.import-instructions {
+  border: 2px dashed #ff8fab;
+  background: #fff8fc;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.instructions-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'VT323', monospace;
+  font-size: 17px;
+  color: #3b1a2e;
+}
+.step-n {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: #a0005a;
+  color: #ffd6e7;
+  padding: 3px 6px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.instructions-cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.col-tag {
+  font-family: 'VT323', monospace;
+  font-size: 15px;
+  background: #ffd6e7;
+  border: 1.5px solid #ff8fab;
+  color: #a0005a;
+  padding: 1px 8px;
+}
+
+/* ── DROP ZONE ── */
+.drop-zone {
+  border: 2px dashed #ff8fab;
+  background: #fff0f6;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  transition: background .1s, border-color .1s;
+}
+.drop-zone.drag-over {
+  background: #ffd6e7;
+  border-color: #a0005a;
+}
+
+.drop-icon { font-size: 40px; }
+.drop-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #a0005a;
+  line-height: 1.8;
+}
+.drop-or {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #ff8fab;
+}
+.drop-filename {
+  font-family: 'VT323', monospace;
+  font-size: 17px;
+  color: #2e7d32;
+  background: #e8f5e9;
+  border: 1.5px solid #81c784;
+  padding: 3px 12px;
+}
+
+/* ── PREVIEW ── */
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.preview-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-pixel--sm {
+  font-size: 6px;
+  padding: 5px 8px;
+}
+
+.preview-summary {
+  font-family: 'VT323', monospace;
+  font-size: 17px;
+  color: #7a3b5e;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #fff0f6;
+  border: 1.5px solid #ff8fab;
+}
+.preview-summary strong { color: #a0005a; }
+
+/* ── TABLA ── */
+.import-table-wrap {
+  overflow-x: auto;
+  border: 2px solid #ff8fab;
+  margin-bottom: 16px;
+}
+.import-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
+.import-table thead {
+  background: #ffd6e7;
+}
+.import-table th {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #a0005a;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 2px solid #ff8fab;
+  white-space: nowrap;
+}
+.import-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #ffd6e7;
+  color: #3b1a2e;
+  vertical-align: middle;
+}
+.import-table tr:last-child td { border-bottom: none; }
+.import-table tr:hover td { background: #fff8fc; }
+.import-table tr.is-duplicate td { background: #fff9c4; }
+.import-table tr.is-skipped td { opacity: .45; }
+
+.col-check { width: 32px; }
+.col-status { width: 110px; }
+
+/* Badges de estado de importación */
+.import-badge {
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  padding: 1px 7px;
+  border: 1.5px solid;
+  white-space: nowrap;
+}
+.import-badge--new      { background: #c8e6c9; border-color: #2e7d32; color: #2e7d32; }
+.import-badge--duplicate { background: #fff9c4; border-color: #f9a825; color: #5d4037; }
+.import-badge--skipped  { background: #f5f5f5; border-color: #9e9e9e; color: #616161; }
+.import-badge--done     { background: #c8e6c9; border-color: #2e7d32; color: #2e7d32; }
+.import-badge--error    { background: #ffcdd2; border-color: #c62828; color: #c62828; }
+
+/* ── FOOTER DE IMPORTACIÓN ── */
+.import-footer {
+  margin-top: 16px;
+}
+
+/* ── RESULTADO ── */
+.result-box {
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  padding: 16px;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #3b1a2e;
+  line-height: 1.8;
+}
+.result-line { display: flex; gap: 8px; align-items: baseline; }
+.result-line strong { color: #a0005a; font-size: 22px; }
+.result-line.result-ok   strong { color: #2e7d32; }
+.result-line.result-warn strong { color: #f9a825; }
+.result-line.result-err  strong { color: #c62828; }
+
+/* ── MODAL DUPLICADO ── */
+.duplicate-msg {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #3b1a2e;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.duplicate-info {
+  border: 1.5px solid #ff8fab;
+  background: #fff8fc;
+  padding: 10px 12px;
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #7a3b5e;
+  line-height: 1.6;
+}
+.duplicate-info strong { color: #a0005a; font-size: 18px; }

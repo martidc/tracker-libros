@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>datos · mi biblioteca ★</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/modals.css" />
+  <link rel="stylesheet" href="./css/import.css" />
+</head>
+<body>
+
+<!-- marquee -->
+<div class="marquee-wrap">
+  <span class="marquee-inner">
+¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸  </span>
+</div>
+
+<header>
+  <div class="logo">★ mis <span>datos</span> ★</div>
+  <nav>
+    <a href="./index.html">inicio</a>
+    <a href="./stats.html">stats</a>
+    <a href="./import.html" class="active">datos</a>
+    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+  </nav>
+</header>
+
+<!-- pantalla de login -->
+<div class="login-screen" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">★ mi <span>biblioteca</span> ★</div>
+    <p class="login-desc">inicia sesión para acceder a tu biblioteca</p>
+    <button class="btn-pixel btn-pixel--lg" id="btn-login">★ entrar con google ★</button>
+  </div>
+</div>
+
+<main class="import-page">
+
+
+  <!-- importar -->
+  <div class="section-title">importar libros</div>
+
+  <div class="source-grid">
+    <button class="source-card active" data-source="sheets" id="btn-source-sheets">
+      <span class="source-name">google sheets</span>
+      <span class="source-desc">tu planilla personal con columnas</span>
+    </button>
+    <button class="source-card" data-source="goodreads" id="btn-source-goodreads">
+      <span class="source-name">goodreads</span>
+      <span class="source-desc">exportá tu biblioteca desde goodreads.com → Mi perfil → Importar/Exportar</span>
+    </button>
+  </div>
+
+  <!-- Instrucciones -->
+  <div class="import-instructions" id="instructions-sheets">
+    <div class="section-title section-title--sm">¿cómo exportar desde google sheets?</div>
+    <div class="instructions-steps">
+      <div class="step"><span class="step-n">1</span><span>Abrí tu planilla en Google Sheets</span></div>
+      <div class="step"><span class="step-n">2</span><span>Archivo → Descargar → Valores separados por comas (.csv)</span></div>
+      <div class="step"><span class="step-n">3</span><span>Subí el archivo acá abajo</span></div>
+    </div>
+    <div class="instructions-cols">
+      <span class="col-tag">Título</span>
+      <span class="col-tag">Autor</span>
+      <span class="col-tag">Páginas</span>
+      <span class="col-tag">Idioma</span>
+      <span class="col-tag">Inicio</span>
+      <span class="col-tag">Finalización</span>
+      <span class="col-tag">Formato</span>
+      <span class="col-tag">Estado</span>
+    </div>
+  </div>
+
+  <div class="import-instructions is-hidden" id="instructions-goodreads">
+    <div class="section-title section-title--sm">¿cómo exportar desde goodreads?</div>
+    <div class="instructions-steps">
+      <div class="step"><span class="step-n">1</span><span>Entrá a goodreads.com e iniciá sesión</span></div>
+      <div class="step"><span class="step-n">2</span><span>Mi perfil → Configuración → Importar y exportar</span></div>
+      <div class="step"><span class="step-n">3</span><span>Hacé click en "Exportar biblioteca" y esperá el email</span></div>
+      <div class="step"><span class="step-n">4</span><span>Descargá el CSV y subilo acá abajo</span></div>
+    </div>
+  </div>
+
+  <!-- Drop zone -->
+  <div class="section-title">subir archivo</div>
+  <div class="drop-zone" id="drop-zone">
+    <span class="drop-text">arrastrá tu CSV acá</span>
+    <span class="drop-or">o</span>
+    <label class="btn-pixel btn-pixel--lg" for="file-input">elegir archivo</label>
+    <input type="file" id="file-input" accept=".csv" class="is-hidden" />
+    <span class="drop-filename is-hidden" id="drop-filename"></span>
+  </div>
+
+  <!-- Preview -->
+  <div id="preview-section" class="is-hidden">
+    <div class="preview-header">
+      <div class="section-title">preview de importación</div>
+      <div class="preview-actions">
+        <button class="btn-pixel b    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+tn-pixel--sm" id="btn-select-all">seleccionar todos</button>
+        <button class="btn-pixel btn-pixel--sm" id="btn-deselect-all">deseleccionar todos</button>
+      </div>
+    </div>
+    <div class="preview-summary" id="preview-summary"></div>
+    <div class="import-table-wrap">
+      <table class="import-table" id="import-table">
+        <thead>
+          <tr>
+            <th class="col-check"></th>
+            <th>título</th>
+            <th>autor</th>
+            <th>páginas</th>
+            <th>estado</th>
+            <th>inicio</th>
+            <th>fin</th>
+            <th class="col-status">estado import</th>
+          </tr>
+        </thead>
+        <tbody id="import-tbody"></tbody>
+      </table>
+    </div>
+    <div class="import-footer">
+      <button class="btn-pixel btn-pixel--full btn-pixel--lg" id="btn-import">★ importar seleccionados ★</button>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div id="result-section" class="is-hidden">
+    <div class="section-title">resultado</div>
+    <div class="result-box" id="result-box"></div>
+    <button class="btn-pixel btn-pixel--lg" id="btn-import-again" style="margin-top:14px">importar otro archivo</button>
+  </div>
+
+    <!-- exportar -->
+  <div class="section-title">exportar biblioteca</div>
+  <div class="export-card">
+    <div class="export-info">
+      <div>
+        <div class="export-title">exportar como CSV</div>
+        <div class="export-desc">descargá todos tus libros en un archivo CSV</div>
+      </div>
+    </div>
+    <button class="btn-pixel btn-pixel--lg" id="btn-export-csv">exportar CSV</button>
+  </div>
+
+
+</main>
+
+<footer>
+  hecha por martidc ★ uso personal ★ <a class="link" href="http://github.com/martidc">github</a>
+</footer>
+
+<!-- Modal duplicado -->
+<div class="modal-overlay" id="duplicate-overlay">
+  <div class="modal modal--detail">
+    <div class="modal-header">
+      <h2>★ libro duplicado</h2>
+    </div>
+    <div class="modal-body">
+      <p class="duplicate-msg" id="duplicate-msg"></p>
+      <div class="duplicate-info" id="duplicate-info"></div>
+      <div class="btn-row" style="margin-top:16px">
+        <button class="btn-pixel btn-pixel--flex btn-pixel--lg" id="btn-dup-skip">saltarlo</button>
+        <button class="btn-pixel btn-pixel--flex btn-pixel--lg btn-pixel--danger" id="btn-dup-overwrite">sobreescribir</button>
+      </div>
+      <div style="margin-top:8px;text-align:center">
+        <button class="btn-pixel btn-pixel--sm" id="btn-dup-skip-all">saltarlos todos</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./js/import.ui.js"></script>
+<script type="module" src="./js/auth.ui.js"></script>
+</body>
+</html>

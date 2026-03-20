@@ -1,0 +1,109 @@
+/* ── layout de dos columnas (mobile - desktop) ── */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 160px));
+  gap: 12px;
+}
+
+@media (min-width: 480px) {
+  .books-grid { grid-template-columns: repeat(3, minmax(0, 160px)); }
+}
+@media (min-width: 700px) {
+  .books-grid { grid-template-columns: repeat(4, minmax(0, 160px)); }
+}
+@media (min-width: 1000px) {
+  .books-grid { grid-template-columns: repeat(5, minmax(0, 160px)); }
+}
+@media (min-width: 1280px) {
+  .books-grid { grid-template-columns: repeat(6, minmax(0, 160px)); }
+}
+
+/* ── layout desktop: sidebar izquierda, libros derecha ── */
+@media (min-width: 1000px) {
+  main {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto;
+    gap: 0 28px;
+    align-items: start;
+  }
+
+  .stats-bar {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sidebar-panel {
+    grid-column: 1;
+    position: sticky;
+    top: 16px;
+  }
+
+  .books-area {
+    grid-column: 2;
+  }
+}
+
+/* ── tarjeta de libro ── */
+.book-card {
+  border: 2px solid #ff8fab;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .1s;
+  overflow: hidden;
+}
+.book-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ── portada ── */
+.book-cover {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  background: #fff0f6;
+  border-bottom: 1.5px solid #ff8fab;
+  position: relative;
+  overflow: hidden;
+}
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.book-cover .no-cover { font-size: 32px; }
+
+@media (min-width: 700px) {
+  .book-cover { height: 160px; }
+}
+
+/* ── info de la tarjeta ── */
+.book-info { padding: 8px 10px 10px; }
+
+.book-title {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a0005a;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-author {
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  color: #7a3b5e;
+  margin-top: 2px;
+}
+
+/* Label de progreso en la tarjeta */
+.book-progress-label {
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  color: #7a3b5e;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>stats · mi biblioteca ★</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/modals.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="./css/stats.css" />
+</head>
+<body>
+
+<!-- marquee -->
+<div class="marquee-wrap">
+  <span class="marquee-inner">
+¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸  </span>
+</div>
+
+<header>
+  <div class="logo">★ mis <span>stats</span> ★</div>
+  <nav>
+    <a href="./index.html">inicio</a>
+    <a href="./stats.html" class="active">stats</a>
+    <a href="./import.html">datos</a>
+    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+  </nav>
+</header>
+
+<!-- pantalla de login -->
+<div class="login-screen" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">★ mi <span>biblioteca</span> ★</div>
+    <p class="login-desc">iniciá sesión para acceder a tu biblioteca</p>
+    <button class="btn-pixel btn-pixel--lg" id="btn-login">★ entrar con google ★</button>
+  </div>
+</div>
+
+<div class="stats-page">
+
+  <!-- Resumen general -->
+  <div class="section-title">resumen general</div>
+  <div class="summary-grid">
+    <div class="summary-card green">
+      <span class="s-num" id="s-total-read">0</span>
+      <div class="s-label">leídos</div>
+    </div>
+    <div class="summary-card blue">
+      <span class="s-num" id="s-total-pages">0</span>
+      <div class="s-label">páginas totales</div>
+    </div>
+    <div class="summary-card orange">
+      <span class="s-num" id="s-this-year">0</span>
+      <div class="s-label">este año</div>
+    </div>
+    <div class="summary-card">
+      <span class="s-num" id="s-this-month">0</span>
+      <div class="s-label">este mes</div>
+    </div>
+  </div>
+
+  <!-- Acciones -->
+  <div class="section-title">explorar</div>
+  <div class="stats-actions">
+    <button class="stats-action-btn blue-btn" id="btn-open-mes">
+      ver este mes
+    </button>
+    <button class="stats-action-btn green-btn" id="btn-open-historico">
+      ver histórico
+    </button>
+  </div>
+
+</div>
+
+
+<!-- MODAL: ESTE MES -->
+<div class="modal-overlay" id="overlay-mes">
+  <div class="modal modal-stats">
+    <div class="modal-header">
+      <h2 id="mes-titulo">★ este mes</h2>
+      <button class="modal-close" id="close-mes">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-summary">
+        <div class="ms-card green">
+          <span class="ms-num" id="mes-read">0</span>
+          <div class="ms-label">leídos</div>
+        </div>
+        <div class="ms-card blue">
+          <span class="ms-num" id="mes-pages">0</span>
+          <div class="ms-label">páginas</div>
+        </div>
+        <div class="ms-card orange">
+          <span class="ms-num" id="mes-avg-days">—</span>
+          <div class="ms-label">días/libro</div>
+        </div>
+        <div class="ms-card">
+          <span class="ms-num" id="mes-longest">—</span>
+          <div class="ms-label">págs. más largo</div>
+        </div>
+      </div>
+
+      <div class="chart-card chart-card--mb">
+        <div class="chart-card-title">páginas leídas — semana del mes</div>
+        <canvas id="chart-mes-semanas"></canvas>
+      </div>
+
+      <div class="section-title section-title--sm">libros terminados este mes</div>
+      <div class="month-books-list" id="mes-books-list">
+        <div class="empty-month">ningún libro terminado este mes todavía</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: HISTÓRICO -->
+<div class="modal-overlay" id="overlay-historico">
+  <div class="modal modal-stats">
+    <div class="modal-header">
+      <h2>★ histórico</h2>
+      <button class="modal-close" id="close-historico">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="year-selector">
+        <label>año:</label>
+        <select id="year-select"></select>
+        <button class="btn-export" id="btn-export-img" title="exportar como imagen">exportar</button>
+      </div>
+
+      <div class="modal-summary">
+        <div class="ms-card green">
+          <span class="ms-num" id="hist-read">0</span>
+          <div class="ms-label">leídos</div>
+        </div>
+        <div class="ms-card blue">
+          <span class="ms-num" id="hist-pages">0</span>
+          <div class="ms-label">páginas</div>
+        </div>
+        <div class="ms-card orange">
+          <span class="ms-num" id="hist-avg">0</span>
+          <div class="ms-label">libros/mes</div>
+        </div>
+        <div class="ms-card">
+          <span class="ms-num" id="hist-longest">—</span>
+          <div class="ms-label">págs. más largo</div>
+        </div>
+      </div>
+
+      <div class="charts-pair">
+        <div class="chart-card">
+          <div class="chart-card-title">libros por mes</div>
+          <canvas id="chart-hist-month"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-title">páginas por mes</div>
+          <canvas id="chart-hist-pages"></canvas>
+        </div>
+      </div>
+
+      <div class="charts-pair charts-pair--spaced">
+        <div class="chart-card">
+          <div class="chart-card-title">libros por año</div>
+          <canvas id="chart-hist-year-books"></canvas>
+        </div>
+        <div class="chart-card">
+          <div class="chart-card-title">páginas por año</div>
+          <canvas id="chart-hist-year-pages"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<footer>
+  hecha por martidc ★ uso personal ★ <a class="link" href="http://github.com/martidc">github</a>
+</footer>
+
+<script type="module" src="./js/stats.ui.js"></script>
+<script type="module" src="./js/auth.ui.js"></script>
+</body>
+</html>

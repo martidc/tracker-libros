@@ -1,0 +1,221 @@
+.stats-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 24px 32px;
+}
+
+/* ── resumen ── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+@media (min-width: 540px) {
+  .summary-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.summary-card {
+  border: 2px solid #ff8fab;
+  padding: 12px 8px;
+  text-align: center;
+  background: #fff0f6;
+}
+.summary-card.green  { background: #e8f5e9; border-color: #81c784; }
+.summary-card.blue   { background: #e3f2fd; border-color: #1565c0; }
+.summary-card.orange { background: #fff3e0; border-color: #f9a825; }
+
+.s-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: #a0005a;
+  display: block;
+  line-height: 1.5;
+}
+.summary-card.green  .s-num { color: #2e7d32; }
+.summary-card.blue   .s-num { color: #1565c0; }
+.summary-card.orange .s-num { color: #e65100; }
+
+.s-label {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: #7a3b5e;
+  margin-top: 2px;
+}
+
+/* ── botones de modales ── */
+.stats-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.stats-action-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  padding: 16px 10px;
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  color: #a0005a;
+  cursor: pointer;
+  text-align: center;
+  line-height: 2;
+  letter-spacing: .5px;
+  transition: background .1s;
+}
+.stats-action-btn:hover { background: #ffd6e7; }
+.stats-action-btn .btn-icon { font-size: 20px; display: block; margin-bottom: 6px; }
+.stats-action-btn.blue-btn  { background: #e3f2fd; border-color: #1565c0; color: #1565c0; }
+.stats-action-btn.blue-btn:hover { background: #bbdefb; }
+.stats-action-btn.green-btn { background: #e8f5e9; border-color: #81c784; color: #2e7d32; }
+.stats-action-btn.green-btn:hover { background: #c8e6c9; }
+
+/* ── charts ── */
+.charts-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+/* Modificador con margen superior */
+.charts-pair--spaced { margin-top: 14px; }
+
+@media (max-width: 500px) {
+  .charts-pair { grid-template-columns: 1fr; }
+}
+
+.chart-card {
+  border: 2px solid #ff8fab;
+  background: #fff;
+  padding: 12px;
+}
+
+/* Modificador con margen inferior */
+.chart-card--mb { margin-bottom: 14px; }
+
+.chart-card-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #a0005a;
+  margin-bottom: 10px;
+}
+
+canvas { width: 100% !important; max-height: 180px; }
+
+/* ── modal stats ── */
+.modal-stats { max-width: 700px; }
+
+/* ── selector de año ── */
+.year-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.year-selector label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #a0005a;
+}
+.year-selector select {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  padding: 3px 10px;
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  color: #a0005a;
+  outline: none;
+}
+
+/* ── botón exportar ── */
+.btn-export {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  padding: 5px 9px;
+  border: 2px solid #a0005a;
+  background: #fff0f6;
+  color: #a0005a;
+  cursor: pointer;
+  margin-left: auto;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.btn-export:hover { background: #a0005a; color: #ffd6e7; }
+
+/* ── stats modal ── */
+.modal-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+@media (min-width: 480px) {
+  .modal-summary { grid-template-columns: repeat(4, 1fr); }
+}
+
+.ms-card {
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  padding: 6px 4px;
+  text-align: center;
+}
+.ms-card.green  { background: #e8f5e9; border-color: #81c784; }
+.ms-card.blue   { background: #e3f2fd; border-color: #1565c0; }
+.ms-card.orange { background: #fff3e0; border-color: #f9a825; }
+
+.ms-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #a0005a;
+  display: block;
+  line-height: 1.5;
+}
+.ms-card.green  .ms-num { color: #2e7d32; }
+.ms-card.blue   .ms-num { color: #1565c0; }
+.ms-card.orange .ms-num { color: #e65100; }
+
+.ms-label {
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  color: #7a3b5e;
+}
+
+/* ── libros del mes ── */
+.month-books-list {
+  margin-top: 14px;
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+}
+.month-book-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ffd6e7;
+  font-family: 'VT323', monospace;
+}
+.month-book-row:last-child { border-bottom: none; }
+.month-book-cover {
+  width: 32px;
+  height: 46px;
+  object-fit: cover;
+  border: 1px solid #ff8fab;
+  flex-shrink: 0;
+  background: #ffd6e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.month-book-cover img { width: 100%; height: 100%; object-fit: cover; }
+.month-book-title  { font-size: 17px; color: #a0005a; font-weight: 600; line-height: 1.2; }
+.month-book-author { font-size: 14px; color: #7a3b5e; }
+.month-book-pages  { font-size: 13px; color: #7a3b5e; margin-left: auto; flex-shrink: 0; }
+
+.empty-month {
+  padding: 20px;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #ff8fab;
+}

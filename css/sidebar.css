@@ -1,0 +1,82 @@
+/* En mobile la sidebar-info está oculta */
+.sidebar-info { display: none; }
+
+/* ── pc ── */
+@media (min-width: 1000px) {
+  .sidebar-info { display: block; }
+
+  .sidebar-panel {
+    grid-column: 1;
+    position: sticky;
+    top: 20px;
+  }
+
+  .books-area {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  /* filtros en columna en pc */
+  .filters {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .filter-btn {
+    text-align: left;
+    font-size: 19px;
+    padding: 4px 14px;
+    width: 100%;
+  }
+
+  /* busqueda compacta */
+  .search-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .search-row .btn-pixel {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* ── info lateral ── */
+.sidebar-widget {
+  border: 2px solid #ff8fab;
+  background: #fff0f6;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sw-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sw-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 6px;
+  color: #7a3b5e;
+  line-height: 1.6;
+}
+
+.sw-val {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: #a0005a;
+  line-height: 1.2;
+}
+
+.sw-val--book {
+  font-size: 16px;
+  color: #3b1a2e;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

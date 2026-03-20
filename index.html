@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>★ inicio · mi biblioteca ★</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/books.css" />
+  <link rel="stylesheet" href="./css/sidebar.css" />
+  <link rel="stylesheet" href="./css/modals.css" />
+</head>
+<body>
+
+<!-- marquee -->
+<div class="marquee-wrap">
+  <span class="marquee-inner">
+¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸  </span>
+</div>
+
+<!-- header -->
+<header>
+  <div class="logo">★ mi <span>biblioteca</span> ★</div>
+  <nav>
+    <a href="#" data-section="agregar" id="btn-open-modal">agregar libro</a>
+    <a href="./stats.html">stats</a>
+    <a href="./import.html">datos</a>
+    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+  </nav>
+</header>
+
+<!-- pantalla de login -->
+<div class="login-screen" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">★ mi <span>biblioteca</span> ★</div>
+    <p class="login-desc">iniciá sesión para acceder a tu biblioteca</p>
+    <button class="btn-pixel btn-pixel--lg" id="btn-login">★ entrar con google ★</button>
+  </div>
+</div>
+
+<main>
+  <!-- barra stats -->
+  <div class="stats-bar" id="stats-bar">
+    <div class="stat-card">
+      <span class="stat-n" id="count-read">0</span>
+      <span class="stat-l">leídos</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-n" id="count-reading">0</span>
+      <span class="stat-l">leyendo</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-n" id="count-want">0</span>
+      <span class="stat-l">pendientes</span>
+    </div>
+  </div>
+
+  <!-- sidebar -->
+  <div class="sidebar-panel">
+    <div class="search-row">
+      <input type="text" id="search-input" placeholder="buscar libro o autor..." />
+      <button class="btn-pixel" id="btn-search">buscar</button>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">todos</button>
+      <button class="filter-btn" data-filter="reading">leyendo</button>
+      <button class="filter-btn" data-filter="read">leídos</button>
+      <button class="filter-btn" data-filter="want_to_read">pendientes</button>
+    </div>
+    <div class="sidebar-info">
+      <div class="section-title">info</div>
+      <div class="sidebar-widget">
+        <div class="sw-row">
+          <span class="sw-label">total en biblioteca</span>
+          <span class="sw-val" id="count-total">0</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-label">último agregado</span>
+          <span class="sw-val sw-val--book" id="last-added">—</span>
+        </div>
+        <div class="sw-row">
+          <span class="sw-label">último leído</span>
+          <span class="sw-val sw-val--book" id="last-read">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- area de libros -->
+  <div class="books-area">
+    <div class="section-title">mis libros</div>
+    <div class="books-grid" id="books-grid">
+      <div class="empty-state empty-state--full">
+        todavía no hay libros...<br>
+      </div>
+    </div>
+    <button class="btn-ver-mas is-hidden" id="btn-ver-mas">ver todos</button>
+  </div>
+</main>
+
+<!-- footer -->
+<footer>
+  hecha por martidc ★ uso personal ★ <a class="link" href="http://github.com/martidc">github</a>
+</footer>
+
+<!-- modal agregar libro -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>★ agregar libro ★</h2>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label>buscar en open library</label>
+        <div class="ol-search-row">
+          <input type="text" id="ol-search" placeholder="título o autor..." />
+          <button class="btn-pixel" id="btn-ol-search">buscar</button>
+        </div>
+        <div class="ol-results" id="ol-results"></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="form-group">
+        <label>título *</label>
+        <input type="text" id="f-title" placeholder="título del libro" />
+      </div>
+      <div class="form-group">
+        <label>autor/a *</label>
+        <input type="text" id="f-author" placeholder="nombre y apellido" />
+      </div>
+      <div class="form-group">
+        <label>portada (URL) — opcional</label>
+        <input type="text" id="f-cover-url" placeholder="https://..." />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>año de publicación</label>
+          <input type="number" id="f-year" placeholder="2024" />
+        </div>
+        <div class="form-group">
+          <label>estado</label>
+          <select id="f-status">
+            <option value="want_to_read">quiero leer</option>
+            <option value="reading">leyendo</option>
+            <option value="read">leído</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>tipo de progreso</label>
+        <select id="f-progress-type">
+          <option value="pages">páginas</option>
+          <option value="percentage">porcentaje</option>
+        </select>
+      </div>
+      <div class="form-row" id="pages-row">
+        <div class="form-group">
+          <label>total de páginas</label>
+          <input type="number" id="f-total-pages" placeholder="300" />
+        </div>
+        <div class="form-group">
+          <label>página actual</label>
+          <input type="number" id="f-current-page" placeholder="0" />
+        </div>
+      </div>
+      <div class="form-group is-hidden" id="pct-row">
+        <label>progreso %</label>
+        <input type="number" id="f-current-pct" placeholder="0" min="0" max="100" />
+      </div>
+      <div class="form-group">
+        <label>¿qué me pareció?</label>
+        <textarea id="f-review" placeholder="blah blah blah"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>fecha inicio</label>
+          <input type="date" id="f-date-start" />
+        </div>
+        <div class="form-group">
+          <label>fecha fin</label>
+          <input type="date" id="f-date-end" />
+        </div>
+      </div>
+
+      <button class="btn-pixel btn-pixel--full btn-pixel--lg" id="btn-save">★ guardar libro ★</button>
+    </div>
+  </div>
+</div>
+
+<!-- modal detalle libro -->
+<div class="modal-overlay" id="detail-overlay">
+  <div class="modal modal--detail">
+    <div class="modal-header">
+      <h2 id="detail-title-header">detalle</h2>
+      <button class="modal-close" id="detail-close">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- ── vista lectura ── -->
+      <div id="detail-view">
+        <div class="detail-hero">
+          <div class="detail-cover" id="detail-cover"></div>
+          <div class="detail-meta">
+            <div class="detail-book-title" id="detail-book-title"></div>
+            <div class="detail-book-author" id="detail-book-author"></div>
+            <div class="detail-book-info" id="detail-book-info"></div>
+            <div id="detail-badge-wrap" class="detail-badge-wrap"></div>
+          </div>
+        </div>
+
+        <!-- Progreso (solo si está leyendo) -->
+        <div id="detail-progress-wrap" class="detail-progress-wrap is-hidden">
+          <div class="progress-wrap">
+            <div class="progress-fill" id="d-progress-bar"></div>
+          </div>
+          <div class="detail-stat-val detail-progress-label" id="d-progress-label"></div>
+        </div>
+
+        <div class="divider divider--wide"></div>
+
+        <!-- Stats estáticas -->
+        <div class="detail-stats">
+          <div class="detail-stat" id="ds-pages-wrap">
+            <span class="detail-stat-label">páginas leídas</span>
+            <span class="detail-stat-val" id="ds-pages">—</span>
+          </div>
+          <div class="detail-stat" id="ds-start-wrap">
+            <span class="detail-stat-label">inicio</span>
+            <span class="detail-stat-val" id="ds-start">—</span>
+          </div>
+          <div class="detail-stat is-hidden" id="ds-end-wrap">
+            <span class="detail-stat-label">fin</span>
+            <span class="detail-stat-val" id="ds-end">—</span>
+          </div>
+          <div class="detail-stat is-hidden" id="ds-days-wrap">
+            <span class="detail-stat-label">días de lectura</span>
+            <span class="detail-stat-val" id="ds-days">—</span>
+          </div>
+        </div>
+
+        <!-- reseña -->
+        <div id="ds-review-wrap" class="ds-review-wrap is-hidden">
+          <div class="section-title section-title--sm">reseña</div>
+          <div class="detail-review" id="ds-review"></div>
+        </div>
+
+        <!-- historial de progreso -->
+        <div class="section-title section-title--sm section-title--spaced">historial de progreso</div>
+        <div class="progress-history" id="d-progress-history">
+          <div class="progress-history__empty">sin registros todavía</div>
+        </div>
+
+        <!-- botones vista lectura -->
+        <div class="btn-row">
+          <button class="btn-pixel btn-pixel--flex btn-pixel--lg" id="btn-go-edit">✏ editar</button>
+          <button class="btn-pixel btn-pixel--danger btn-pixel--lg" id="btn-detail-delete">eliminar</button>
+        </div>
+      </div>
+
+      <!-- ── edición ── -->
+      <div id="detail-edit" class="is-hidden">
+
+        <div class="form-group">
+          <label>portada (URL) — opcional</label>
+          <input type="text" id="d-cover-url" placeholder="https://..." />
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="form-group">
+          <label>estado</label>
+          <select id="d-status">
+            <option value="want_to_read">quiero leer</option>
+            <option value="reading">leyendo</option>
+            <option value="read">leído</option>
+          </select>
+        </div>
+
+        <div id="d-progress-section">
+          <div class="form-group">
+            <label>tipo de progreso</label>
+            <select id="d-progress-type">
+              <option value="pages">páginas</option>
+              <option value="percentage">porcentaje</option>
+            </select>
+          </div>
+          <div class="form-row" id="d-pages-row">
+            <div class="form-group">
+              <label>total de páginas</label>
+              <input type="number" id="d-total-pages" placeholder="320" />
+            </div>
+            <div class="form-group">
+              <label>página actual</label>
+              <input type="number" id="d-current-page" placeholder="0" />
+            </div>
+          </div>
+          <div class="form-group is-hidden" id="d-pct-row">
+            <label>progreso %</label>
+            <input type="number" id="d-current-pct" placeholder="0" min="0" max="100" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>fecha inicio</label>
+            <input type="date" id="d-date-start" />
+          </div>
+          <div class="form-group">
+            <label>fecha fin</label>
+            <input type="date" id="d-date-end" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>¿qué me pareció?</label>
+          <textarea id="d-review" placeholder="blah blah blah"></textarea>
+        </div>
+
+        <!-- Botones vista edición -->
+        <div class="btn-row">
+          <button class="btn-pixel btn-pixel--flex btn-pixel--lg" id="btn-detail-save">★ guardar ★</button>
+          <button class="btn-pixel btn-pixel--cancel btn-pixel--lg" id="btn-go-view">cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./js/ui.js"></script>
+</body>
+</html>
