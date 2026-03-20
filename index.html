@@ -11,23 +11,23 @@
   <link rel="stylesheet" href="./css/books.css" />
   <link rel="stylesheet" href="./css/sidebar.css" />
   <link rel="stylesheet" href="./css/modals.css" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#a0005a" />
 </head>
 <body>
 
-<!-- marquee -->
 <div class="marquee-wrap">
   <span class="marquee-inner">
 ¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸  </span>
 </div>
 
-<!-- header -->
 <header>
   <div class="logo">★ mi <span>biblioteca</span> ★</div>
   <nav>
     <a href="#" data-section="agregar" id="btn-open-modal">agregar libro</a>
     <a href="./stats.html">stats</a>
     <a href="./import.html">datos</a>
-    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+    <button class="btn-pixel btn-pixel--sm" id="btn-logout" style="visibility:hidden">salir</button>
   </nav>
 </header>
 
@@ -41,7 +41,6 @@
 </div>
 
 <main>
-  <!-- barra stats -->
   <div class="stats-bar" id="stats-bar">
     <div class="stat-card">
       <span class="stat-n" id="count-read">0</span>
@@ -57,7 +56,6 @@
     </div>
   </div>
 
-  <!-- sidebar -->
   <div class="sidebar-panel">
     <div class="search-row">
       <input type="text" id="search-input" placeholder="buscar libro o autor..." />
@@ -88,7 +86,6 @@
     </div>
   </div>
 
-  <!-- area de libros -->
   <div class="books-area">
     <div class="section-title">mis libros</div>
     <div class="books-grid" id="books-grid">
@@ -100,7 +97,6 @@
   </div>
 </main>
 
-<!-- footer -->
 <footer>
   hecha por martidc ★ uso personal ★ <a class="link" href="http://github.com/martidc">github</a>
 </footer>
@@ -113,7 +109,6 @@
       <button class="modal-close" id="modal-close">✕</button>
     </div>
     <div class="modal-body">
-
       <div class="form-group">
         <label>buscar en open library</label>
         <div class="ol-search-row">
@@ -122,9 +117,7 @@
         </div>
         <div class="ol-results" id="ol-results"></div>
       </div>
-
       <div class="divider"></div>
-
       <div class="form-group">
         <label>título *</label>
         <input type="text" id="f-title" placeholder="título del libro" />
@@ -186,7 +179,6 @@
           <input type="date" id="f-date-end" />
         </div>
       </div>
-
       <button class="btn-pixel btn-pixel--full btn-pixel--lg" id="btn-save">★ guardar libro ★</button>
     </div>
   </div>
@@ -200,8 +192,6 @@
       <button class="modal-close" id="detail-close">✕</button>
     </div>
     <div class="modal-body">
-
-      <!-- ── vista lectura ── -->
       <div id="detail-view">
         <div class="detail-hero">
           <div class="detail-cover" id="detail-cover"></div>
@@ -212,18 +202,13 @@
             <div id="detail-badge-wrap" class="detail-badge-wrap"></div>
           </div>
         </div>
-
-        <!-- Progreso (solo si está leyendo) -->
         <div id="detail-progress-wrap" class="detail-progress-wrap is-hidden">
           <div class="progress-wrap">
             <div class="progress-fill" id="d-progress-bar"></div>
           </div>
           <div class="detail-stat-val detail-progress-label" id="d-progress-label"></div>
         </div>
-
         <div class="divider divider--wide"></div>
-
-        <!-- Stats estáticas -->
         <div class="detail-stats">
           <div class="detail-stat" id="ds-pages-wrap">
             <span class="detail-stat-label">páginas leídas</span>
@@ -242,36 +227,26 @@
             <span class="detail-stat-val" id="ds-days">—</span>
           </div>
         </div>
-
-        <!-- reseña -->
         <div id="ds-review-wrap" class="ds-review-wrap is-hidden">
           <div class="section-title section-title--sm">reseña</div>
           <div class="detail-review" id="ds-review"></div>
         </div>
-
-        <!-- historial de progreso -->
         <div class="section-title section-title--sm section-title--spaced">historial de progreso</div>
         <div class="progress-history" id="d-progress-history">
           <div class="progress-history__empty">sin registros todavía</div>
         </div>
-
-        <!-- botones vista lectura -->
         <div class="btn-row">
           <button class="btn-pixel btn-pixel--flex btn-pixel--lg" id="btn-go-edit">✏ editar</button>
           <button class="btn-pixel btn-pixel--danger btn-pixel--lg" id="btn-detail-delete">eliminar</button>
         </div>
       </div>
 
-      <!-- ── edición ── -->
       <div id="detail-edit" class="is-hidden">
-
         <div class="form-group">
           <label>portada (URL) — opcional</label>
           <input type="text" id="d-cover-url" placeholder="https://..." />
         </div>
-
         <div class="divider"></div>
-
         <div class="form-group">
           <label>estado</label>
           <select id="d-status">
@@ -280,7 +255,6 @@
             <option value="read">leído</option>
           </select>
         </div>
-
         <div id="d-progress-section">
           <div class="form-group">
             <label>tipo de progreso</label>
@@ -304,7 +278,6 @@
             <input type="number" id="d-current-pct" placeholder="0" min="0" max="100" />
           </div>
         </div>
-
         <div class="form-row">
           <div class="form-group">
             <label>fecha inicio</label>
@@ -315,23 +288,24 @@
             <input type="date" id="d-date-end" />
           </div>
         </div>
-
         <div class="form-group">
           <label>¿qué me pareció?</label>
           <textarea id="d-review" placeholder="blah blah blah"></textarea>
         </div>
-
-        <!-- Botones vista edición -->
         <div class="btn-row">
           <button class="btn-pixel btn-pixel--flex btn-pixel--lg" id="btn-detail-save">★ guardar ★</button>
           <button class="btn-pixel btn-pixel--cancel btn-pixel--lg" id="btn-go-view">cancelar</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
 <script type="module" src="./js/ui.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js');
+  }
+</script>
 </body>
 </html>

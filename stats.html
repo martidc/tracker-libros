@@ -13,10 +13,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <link rel="stylesheet" href="./css/stats.css" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#a0005a" />
 </head>
 <body>
 
-<!-- marquee -->
 <div class="marquee-wrap">
   <span class="marquee-inner">
 ¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸  </span>
@@ -28,7 +29,7 @@
     <a href="./index.html">inicio</a>
     <a href="./stats.html" class="active">stats</a>
     <a href="./import.html">datos</a>
-    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+    <button class="btn-pixel btn-pixel--sm" id="btn-logout" style="visibility:hidden">salir</button>
   </nav>
 </header>
 
@@ -43,7 +44,6 @@
 
 <div class="stats-page">
 
-  <!-- Resumen general -->
   <div class="section-title">resumen general</div>
   <div class="summary-grid">
     <div class="summary-card green">
@@ -64,7 +64,6 @@
     </div>
   </div>
 
-  <!-- Acciones -->
   <div class="section-title">explorar</div>
   <div class="stats-actions">
     <button class="stats-action-btn blue-btn" id="btn-open-mes">
@@ -77,6 +76,9 @@
 
 </div>
 
+<footer>
+  hecha por martidc ★ uso personal ★ <a class="link" href="http://github.com/martidc">github</a>
+</footer>
 
 <!-- MODAL: ESTE MES -->
 <div class="modal-overlay" id="overlay-mes">
@@ -86,7 +88,6 @@
       <button class="modal-close" id="close-mes">✕</button>
     </div>
     <div class="modal-body">
-
       <div class="modal-summary">
         <div class="ms-card green">
           <span class="ms-num" id="mes-read">0</span>
@@ -105,17 +106,14 @@
           <div class="ms-label">págs. más largo</div>
         </div>
       </div>
-
       <div class="chart-card chart-card--mb">
         <div class="chart-card-title">páginas leídas — semana del mes</div>
         <canvas id="chart-mes-semanas"></canvas>
       </div>
-
       <div class="section-title section-title--sm">libros terminados este mes</div>
       <div class="month-books-list" id="mes-books-list">
         <div class="empty-month">ningún libro terminado este mes todavía</div>
       </div>
-
     </div>
   </div>
 </div>
@@ -128,13 +126,11 @@
       <button class="modal-close" id="close-historico">✕</button>
     </div>
     <div class="modal-body">
-
       <div class="year-selector">
         <label>año:</label>
         <select id="year-select"></select>
         <button class="btn-export" id="btn-export-img" title="exportar como imagen">exportar</button>
       </div>
-
       <div class="modal-summary">
         <div class="ms-card green">
           <span class="ms-num" id="hist-read">0</span>
@@ -153,7 +149,6 @@
           <div class="ms-label">págs. más largo</div>
         </div>
       </div>
-
       <div class="charts-pair">
         <div class="chart-card">
           <div class="chart-card-title">libros por mes</div>
@@ -164,7 +159,6 @@
           <canvas id="chart-hist-pages"></canvas>
         </div>
       </div>
-
       <div class="charts-pair charts-pair--spaced">
         <div class="chart-card">
           <div class="chart-card-title">libros por año</div>
@@ -175,17 +169,16 @@
           <canvas id="chart-hist-year-pages"></canvas>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
-<!-- footer -->
-<footer>
-  hecha por martidc ★ uso personal ★ <a class="link" href="http://github.com/martidc">github</a>
-</footer>
-
 <script type="module" src="./js/stats.ui.js"></script>
 <script type="module" src="./js/auth.ui.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js');
+  }
+</script>
 </body>
 </html>

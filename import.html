@@ -11,10 +11,11 @@
   <link rel="stylesheet" href="./css/components.css" />
   <link rel="stylesheet" href="./css/modals.css" />
   <link rel="stylesheet" href="./css/import.css" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#a0005a" />
 </head>
 <body>
 
-<!-- marquee -->
 <div class="marquee-wrap">
   <span class="marquee-inner">
 ¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸¸,ø¤°`°¤ø,¸  </span>
@@ -26,7 +27,7 @@
     <a href="./index.html">inicio</a>
     <a href="./stats.html">stats</a>
     <a href="./import.html" class="active">datos</a>
-    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
+    <button class="btn-pixel btn-pixel--sm" id="btn-logout" style="visibility:hidden">salir</button>
   </nav>
 </header>
 
@@ -34,13 +35,12 @@
 <div class="login-screen" id="login-screen">
   <div class="login-card">
     <div class="login-logo">★ mi <span>biblioteca</span> ★</div>
-    <p class="login-desc">inicia sesión para acceder a tu biblioteca</p>
+    <p class="login-desc">iniciá sesión para acceder a tu biblioteca</p>
     <button class="btn-pixel btn-pixel--lg" id="btn-login">★ entrar con google ★</button>
   </div>
 </div>
 
 <main class="import-page">
-
 
   <!-- importar -->
   <div class="section-title">importar libros</div>
@@ -48,7 +48,7 @@
   <div class="source-grid">
     <button class="source-card active" data-source="sheets" id="btn-source-sheets">
       <span class="source-name">google sheets</span>
-      <span class="source-desc">tu planilla personal con columnas</span>
+      <span class="source-desc">tu planilla personal con columnas Título, Autor, Páginas, Idioma, Inicio, Finalización, Formato, Estado</span>
     </button>
     <button class="source-card" data-source="goodreads" id="btn-source-goodreads">
       <span class="source-name">goodreads</span>
@@ -101,8 +101,7 @@
     <div class="preview-header">
       <div class="section-title">preview de importación</div>
       <div class="preview-actions">
-        <button class="btn-pixel b    <button class="btn-pixel btn-pixel--sm" id="btn-logout">salir</button>
-tn-pixel--sm" id="btn-select-all">seleccionar todos</button>
+        <button class="btn-pixel btn-pixel--sm" id="btn-select-all">seleccionar todos</button>
         <button class="btn-pixel btn-pixel--sm" id="btn-deselect-all">deseleccionar todos</button>
       </div>
     </div>
@@ -136,7 +135,7 @@ tn-pixel--sm" id="btn-select-all">seleccionar todos</button>
     <button class="btn-pixel btn-pixel--lg" id="btn-import-again" style="margin-top:14px">importar otro archivo</button>
   </div>
 
-    <!-- exportar -->
+  <!-- exportar -->
   <div class="section-title">exportar biblioteca</div>
   <div class="export-card">
     <div class="export-info">
@@ -147,7 +146,6 @@ tn-pixel--sm" id="btn-select-all">seleccionar todos</button>
     </div>
     <button class="btn-pixel btn-pixel--lg" id="btn-export-csv">exportar CSV</button>
   </div>
-
 
 </main>
 
@@ -177,5 +175,10 @@ tn-pixel--sm" id="btn-select-all">seleccionar todos</button>
 
 <script type="module" src="./js/import.ui.js"></script>
 <script type="module" src="./js/auth.ui.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./service-worker.js');
+  }
+</script>
 </body>
 </html>
